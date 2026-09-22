@@ -1,0 +1,2010 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="global.css" />
+	<title>Vesk — The compiler-first framework for web and native apps</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Vesk is a compiler-first application framework. Write one component model and compile it into optimized web and native Kotlin applications." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,1,400;9..144,1,500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+	<link rel="icon" href="/favicon.svg" /></head>
+
+<body>
+<div id="root">
+<!--vsk:t:div-->
+<div class="min-h-screen bg-background text-foreground antialiased">
+	<!--vsk:c:Nav-->
+	<!--vsk:t:header-->
+	<header class="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
+		<!--vsk:t:div-->
+		<div class="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
+			<!--vsk:c:Link-->
+			<!--vsk:c:Link-->
+			<a href="/" class="flex items-center gap-2 no-underline">
+				<span class="grid size-6 place-items-center bg-foreground font-display text-[11px] font-bold text-background">
+					V
+				</span>
+				<span class="font-display text-sm font-semibold tracking-tight text-foreground">
+					vesk
+				</span>
+				<span class="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
+					compiler-first
+				</span>
+			</a>
+			<!--vsk:t:nav-->
+			<nav class="hidden items-center gap-6 font-mono text-[11px] text-muted-foreground md:flex">
+				<!--vsk:c:Link-->
+				<!--vsk:c:Link-->
+				<a href="/compiler" class="transition-colors hover:text-foreground no-underline text-muted-foreground">
+					compiler
+				</a>
+				<!--vsk:c:Link-->
+				<!--vsk:c:Link-->
+				<a href="/native" class="transition-colors hover:text-foreground no-underline text-muted-foreground">
+					native
+				</a>
+				<!--vsk:c:Link-->
+				<!--vsk:c:Link-->
+				<a href="/features" class="transition-colors hover:text-foreground no-underline text-muted-foreground">
+					features
+				</a>
+				<!--vsk:c:Link-->
+				<!--vsk:c:Link-->
+				<a href="/docs" class="transition-colors hover:text-foreground no-underline text-muted-foreground">
+					docs
+				</a>
+				<!--vsk:c:Link-->
+				<!--vsk:c:Link-->
+				<a href="/showcase" class="transition-colors hover:text-foreground no-underline text-muted-foreground">
+					showcase
+				</a>
+				<!--vsk:c:Link-->
+				<!--vsk:c:Link-->
+				<a href="/docs/getting-started" class="btn-solid px-3 py-1.5 text-[11px] no-underline">
+					Get Started
+				</a>
+			</nav>
+			<!--vsk:t:button-->
+			<button type="button" class="grid size-8 place-items-center border border-border md:hidden bg-transparent text-foreground" aria-label="Open menu">
+				<!--vsk:c:Menu-->
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true">
+					<path d="M4 12h16"/>
+					<path d="M4 18h16"/>
+					<path d="M4 6h16"/>
+				</svg>
+			</button>
+		</div>
+	</header>
+	<!--vsk-slot:s1-->
+	<!--vsk:t:div-->
+	<div class="min-h-screen bg-background text-foreground">
+		<!--vsk:t:main-->
+		<main>
+			<!--vsk:c:Hero-->
+			<!--vsk:t:section-->
+			<section id="top" class="border-b border-border">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 pt-12 pb-14 sm:px-8 sm:pt-20 sm:pb-20 lg:grid lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:pt-24">
+					<!--vsk:t:div-->
+					<div>
+						<!--vsk:t:div-->
+						<div class="rise mb-6 inline-flex items-center gap-2 border border-border px-2.5 py-1">
+							<span class="size-1.5 bg-accent">
+							</span>
+							<!--vsk:t:span-->
+							<span class="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+								compiler-first framework ·
+								<!--vsk:c:VersionBadge-->
+								<!--vsk:t:span-->
+								<span>
+									v0.2.35
+								</span>
+							</span>
+						</div>
+						<h1 class="rise rise-1 font-display text-[40px] font-semibold leading-[0.95] tracking-tight text-balance sm:text-6xl lg:text-7xl">
+							Build once.
+							<br />
+							Compile
+							<span class="font-hand text-[0.95em] font-medium italic">
+								everywhere.
+							</span>
+						</h1>
+						<p class="rise rise-2 mt-6 max-w-[46ch] font-mono text-[13px] leading-relaxed text-muted-foreground text-pretty sm:text-sm">
+							Vesk is a compiler-first framework. Write one modern component model, and its compiler transforms your code into optimized web and native Kotlin applications — never a wrapped WebView.
+						</p>
+						<div class="rise rise-3 mt-8 flex flex-col gap-2.5 sm:flex-row">
+							<a id="get-started" href="#dx" class="btn-solid px-6 py-3 text-sm sm:min-w-[10rem] no-underline">
+								Get Started
+							</a>
+							<a href="#docs" class="btn-outline px-6 py-3 text-sm sm:min-w-[10rem] no-underline">
+								Explore the Docs
+							</a>
+						</div>
+						<!--vsk:t:div-->
+						<div class="rise rise-4 mt-8 max-w-[24rem]">
+							<!--vsk:c:CommandTabs-->
+							<!--vsk:t:div-->
+							<div class="panel-strong min-w-0 overflow-hidden">
+								<!--vsk:t:div-->
+								<div class="flex items-center justify-between gap-3 border-b border-border bg-background pr-1.5">
+									<!--vsk:t:div-->
+									<div class="flex flex-wrap gap-px">
+										<!--vsk:t:button-->
+										<button type="button" aria-pressed="true" class="px-3 py-2 font-mono text-[11.5px] bg-foreground text-background">
+											web
+										</button>
+										<!--vsk:t:button-->
+										<button type="button" class="px-3 py-2 font-mono text-[11.5px] bg-surface text-muted-foreground hover:text-foreground">
+											kotlin native
+										</button>
+									</div>
+									<!--vsk:t:button-->
+									<button type="button" class="grid size-7 shrink-0 place-items-center text-muted-foreground transition-colors hover:text-foreground" aria-label="Copy command">
+										<!--vsk:c:Copy-->
+										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true">
+											<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+											<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+										</svg>
+									</button>
+								</div>
+								<!--vsk:t:div-->
+								<div class="min-h-[88px] px-4 py-4 font-mono text-[11.5px] leading-[1.9] text-foreground/85 sm:text-[12.5px]">
+									<!--vsk:t:div-->
+									<div>
+										$ npx create-vesk@latest my-app
+									</div>
+									<!--vsk:t:div-->
+									<div>
+										cd my-app
+									</div>
+									<!--vsk:t:div-->
+									<div>
+										npm install
+									</div>
+									<!--vsk:t:div-->
+									<div>
+										npm run dev
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--vsk:t:div-->
+					<div class="rise rise-4 mt-12 lg:mt-0">
+						<!--vsk:t:div-->
+						<div class="panel">
+							<div class="border-b border-border px-3 py-1.5">
+								<span class="eyebrow">
+									compiler pipeline
+								</span>
+							</div>
+							<div class="px-4 py-5 font-mono text-[13px] leading-tight">
+								<div class="flex items-center justify-between gap-3 pl-3">
+									<span class="flex items-center gap-2">
+										<span class="size-1.5 bg-foreground/60">
+										</span>
+										<span class="text-foreground">
+											app.vsk
+										</span>
+									</span>
+									<span class="text-[11px] text-muted-foreground">
+										source
+									</span>
+								</div>
+								<div class="py-1.5 pl-3 text-muted-foreground/70">
+									↓
+								</div>
+								<div class="flex items-center justify-between gap-3 pl-3">
+									<span class="flex items-center gap-2">
+										<span class="size-1.5 bg-accent">
+										</span>
+										<span class="text-foreground">
+											vesk compiler
+										</span>
+									</span>
+									<span class="text-[11px] text-muted-foreground">
+										preprocess · parse · ir · codegen
+									</span>
+								</div>
+								<div class="py-1.5 pl-3 text-muted-foreground/70">
+									↓
+								</div>
+								<div class="grid grid-cols-2 gap-2 pl-3">
+									<div class="border border-border px-3 py-2.5 text-center text-[12px]">
+										web
+									</div>
+									<div class="border border-border px-3 py-2.5 text-center text-[12px]">
+										kotlin native
+									</div>
+								</div>
+							</div>
+							<!--vsk:t:div-->
+							<div class="flex items-center justify-between border-t border-border px-3 py-2 font-mono text-[10px] text-muted-foreground">
+								<span>
+									output → .vesk/
+								</span>
+								<!--vsk:t:span-->
+								<span class="flex items-center gap-1.5">
+									<span class="size-1.5 bg-accent caret">
+									</span>
+									<!--vsk:c:VersionBadge-->
+									<!--vsk:t:span-->
+									<span>
+										v0.2.35
+									</span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:CodeShowcase-->
+			<!--vsk:t:section-->
+			<section id="compiler" class="border-b border-border bg-surface/40">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<div>
+						<p class="eyebrow mb-5 flex items-center gap-2">
+							<span class="text-accent">
+								01
+							</span>
+							<span>
+								write → understand → compile → ship
+							</span>
+						</p>
+						<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl">
+							The compiler reads your intent.
+						</h2>
+						<p class="mt-4 max-w-[52ch] font-mono text-[13px] leading-relaxed text-muted-foreground text-pretty sm:text-sm">
+							A
+							<span class="text-foreground">
+								.vsk
+							</span>
+							component is parsed, checked for semantics the target can honour, then lowered into platform code. Same source, two honest outputs.
+						</p>
+					</div>
+					<!--vsk:t:div-->
+					<div class="mt-10 grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-6">
+						<!--vsk:t:div-->
+						<div class="min-w-0">
+							<!--vsk:t:div-->
+							<div class="panel-strong min-w-0 overflow-hidden">
+								<div class="flex items-center justify-between border-b border-border px-3 py-2">
+									<span class="font-mono text-[11px] text-foreground/70">
+										About.vsk
+									</span>
+									<span class="eyebrow text-[10px]">
+										source
+									</span>
+								</div>
+								<!--vsk:t:pre-->
+								<pre class="min-w-0 max-w-full overflow-x-auto px-4 py-4 font-mono text-[11.5px] leading-[1.75] sm:text-[12.5px] text-foreground/85">
+									<!--vsk:t:code-->
+									<code>
+										component About {
+  &lt;div class=&quot;max-w-3xl mx-auto px-4 py-14&quot;&gt;
+    &lt;h1 class=&quot;text-3xl font-semibold text-ink&quot;&gt;About Vesk&lt;/h1&gt;
+    &lt;p class=&quot;text-muted&quot;&gt;Some text here.&lt;/p&gt;
+  &lt;/div&gt;
+}
+									</code>
+								</pre>
+							</div>
+						</div>
+						<!--vsk:t:div-->
+						<div class="min-w-0">
+							<!--vsk:t:div-->
+							<div class="panel-strong min-w-0 overflow-hidden">
+								<!--vsk:t:div-->
+								<div class="flex min-w-0 items-center justify-between border-b border-border px-3 py-1.5">
+									<!--vsk:t:div-->
+									<div class="flex min-w-0">
+										<!--vsk:t:button-->
+										<button type="button" class="shrink-0 px-3 py-1 font-mono text-[11px] bg-foreground text-background">
+											ssr.html
+										</button>
+										<!--vsk:t:button-->
+										<button type="button" class="shrink-0 px-3 py-1 font-mono text-[11px] text-muted-foreground hover:text-foreground">
+											about.js
+										</button>
+										<!--vsk:t:button-->
+										<button type="button" class="shrink-0 px-3 py-1 font-mono text-[11px] text-muted-foreground hover:text-foreground">
+											About.kt
+										</button>
+									</div>
+									<span class="eyebrow shrink-0 text-[10px] text-accent">
+										compiled
+									</span>
+								</div>
+								<!--vsk:t:pre-->
+								<pre class="min-w-0 max-w-full overflow-x-auto px-4 py-4 font-mono text-[11.5px] leading-[1.75] text-foreground/70 sm:text-[12.5px]">
+									<!--vsk:t:code-->
+									<code>
+										&lt;div class=&quot;max-w-3xl mx-auto px-4 py-14&quot;&gt;&lt;h1 class=&quot;text-3xl font-semibold text-ink&quot;&gt;About Vesk&lt;/h1&gt;&lt;p class=&quot;text-muted&quot;&gt;Some text here.&lt;/p&gt;&lt;/div&gt;
+									</code>
+								</pre>
+								<!--vsk:t:div-->
+								<div class="flex min-w-0 items-center gap-3 border-t border-border px-3 py-2 font-mono text-[10px] text-muted-foreground">
+									<!--vsk:t:span-->
+									<span class="">
+										·preprocess
+									</span>
+									<!--vsk:t:span-->
+									<span class="">
+										·parse
+									</span>
+									<!--vsk:t:span-->
+									<span class="">
+										·ir
+									</span>
+									<!--vsk:t:span-->
+									<span class="">
+										·codegen
+									</span>
+									<!--vsk:t:span-->
+									<span class="ml-auto">
+										…
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="mt-6 max-w-[60ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+						If Vesk cannot preserve the semantics of your component on a target, the build fails — it never silently ships different behaviour.
+					</p>
+				</div>
+			</section>
+			<!--vsk:c:Philosophy-->
+			<!--vsk:t:section-->
+			<section id="why" class="border-b border-border">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<p class="eyebrow mb-5 flex items-center gap-2">
+						<span class="text-accent">
+							02
+						</span>
+						<span>
+							the philosophy
+						</span>
+					</p>
+					<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[26ch]">
+						Why Vesk exists.
+					</h2>
+					<!--vsk:t:div-->
+					<div class="mt-10 grid border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+						<!--vsk:t:article-->
+						<article class="h-full border-b border-border px-0 py-6 sm:px-6 sm:[&amp;:nth-child(odd)]:pl-0 lg:border-l lg:first:border-l-0">
+							<!--vsk:t:span-->
+							<span class="font-mono text-[11px] text-accent">
+								01
+							</span>
+							<!--vsk:t:h3-->
+							<h3 class="mt-3 font-display text-base font-semibold tracking-tight">
+								Compiler first
+							</h3>
+							<!--vsk:t:p-->
+							<p class="mt-2 max-w-[38ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+								Guarantees move from runtime to build time. Less shipped abstraction, more known-good output.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-b border-border px-0 py-6 sm:px-6 sm:[&amp;:nth-child(odd)]:pl-0 lg:border-l lg:first:border-l-0">
+							<!--vsk:t:span-->
+							<span class="font-mono text-[11px] text-accent">
+								02
+							</span>
+							<!--vsk:t:h3-->
+							<h3 class="mt-3 font-display text-base font-semibold tracking-tight">
+								One development model
+							</h3>
+							<!--vsk:t:p-->
+							<p class="mt-2 max-w-[38ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+								A single component and styling model across targets — no per-platform rewrites of the same screen.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-b border-border px-0 py-6 sm:px-6 sm:[&amp;:nth-child(odd)]:pl-0 lg:border-l lg:first:border-l-0">
+							<!--vsk:t:span-->
+							<span class="font-mono text-[11px] text-accent">
+								03
+							</span>
+							<!--vsk:t:h3-->
+							<h3 class="mt-3 font-display text-base font-semibold tracking-tight">
+								Native applications
+							</h3>
+							<!--vsk:t:p-->
+							<p class="mt-2 max-w-[38ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+								Vesk Native compiles toward native Kotlin rather than wrapping a web app inside a WebView.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-b border-border px-0 py-6 sm:px-6 sm:[&amp;:nth-child(odd)]:pl-0 lg:border-l lg:first:border-l-0">
+							<!--vsk:t:span-->
+							<span class="font-mono text-[11px] text-accent">
+								04
+							</span>
+							<!--vsk:t:h3-->
+							<h3 class="mt-3 font-display text-base font-semibold tracking-tight">
+								Developer experience
+							</h3>
+							<!--vsk:t:p-->
+							<p class="mt-2 max-w-[38ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+								Modern tooling, fast feedback, HMR, Tailwind utilities, icons and motion primitives you already know.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-b border-border px-0 py-6 sm:px-6 sm:[&amp;:nth-child(odd)]:pl-0 lg:border-l lg:first:border-l-0">
+							<!--vsk:t:span-->
+							<span class="font-mono text-[11px] text-accent">
+								05
+							</span>
+							<!--vsk:t:h3-->
+							<h3 class="mt-3 font-display text-base font-semibold tracking-tight">
+								Performance
+							</h3>
+							<!--vsk:t:p-->
+							<p class="mt-2 max-w-[38ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+								The compiler produces optimized platform output instead of carrying a runtime abstraction along.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-b border-border px-0 py-6 sm:px-6 sm:[&amp;:nth-child(odd)]:pl-0 lg:border-l lg:first:border-l-0">
+							<!--vsk:t:span-->
+							<span class="font-mono text-[11px] text-accent">
+								06
+							</span>
+							<!--vsk:t:h3-->
+							<h3 class="mt-3 font-display text-base font-semibold tracking-tight">
+								Safety
+							</h3>
+							<!--vsk:t:p-->
+							<p class="mt-2 max-w-[38ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+								When semantics can't be preserved on a target, the compiler fails the build. Silence is the bug.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:Native-->
+			<!--vsk:t:section-->
+			<section id="native" class="border-b border-border bg-surface/40">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<!--vsk:t:div-->
+					<div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center lg:gap-16">
+						<!--vsk:t:div-->
+						<div>
+							<p class="eyebrow mb-5 flex items-center gap-2">
+								<span class="text-accent">
+									03
+								</span>
+								<span>
+									vesk native
+								</span>
+							</p>
+							<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[24ch]">
+								Build native apps with the tools you already love.
+							</h2>
+							<p class="mt-5 max-w-[46ch] font-mono text-[13px] leading-relaxed text-muted-foreground text-pretty sm:text-sm">
+								Write the same Vesk components you write for the web. Vesk Native compiles them toward Kotlin application targets — real native views, real platform APIs, Material 3 defaults.
+							</p>
+							<!--vsk:t:div-->
+							<div class="mt-7 flex flex-wrap gap-2">
+								<!--vsk:t:span-->
+								<span class="chip">
+									Android
+								</span>
+								<!--vsk:t:span-->
+								<span class="chip">
+									Native Kotlin
+								</span>
+								<!--vsk:t:span-->
+								<span class="chip">
+									Material 3
+								</span>
+								<!--vsk:t:span-->
+								<span class="chip">
+									Tailwind utilities
+								</span>
+								<!--vsk:t:span-->
+								<span class="chip">
+									Motion-style animation
+								</span>
+								<!--vsk:t:span-->
+								<span class="chip">
+									Native APIs
+								</span>
+								<!--vsk:t:span-->
+								<span class="chip">
+									Fast dev workflow
+								</span>
+							</div>
+							<a href="#docs" class="mt-7 inline-flex items-center gap-1.5 font-display text-sm font-medium underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent no-underline text-foreground">
+								Explore Vesk Native
+								<span aria-hidden>
+									→
+								</span>
+							</a>
+						</div>
+						<!--vsk:t:div-->
+						<div class="panel-strong p-4 sm:p-6">
+							<div class="mb-4 flex items-center justify-between font-mono text-[10px] text-muted-foreground">
+								<span class="uppercase tracking-[0.2em]">
+									vesk native · preview
+								</span>
+								<span>
+									360 × 740
+								</span>
+							</div>
+							<!--vsk:t:div-->
+							<div class="mx-auto w-[220px] border border-border-strong bg-background p-2 sm:w-[248px]">
+								<div class="flex items-center justify-between border-b border-border pb-2 font-mono text-[9px] text-muted-foreground">
+									<span>
+										9:41
+									</span>
+									<span>
+										▮▮▮
+									</span>
+								</div>
+								<!--vsk:t:div-->
+								<div class="pt-3">
+									<p class="font-display text-sm font-semibold tracking-tight">
+										Entries
+									</p>
+									<div class="mt-2 flex gap-3 border-b border-border pb-2 font-mono text-[9px]">
+										<span class="text-accent">
+											All
+										</span>
+										<span class="text-muted-foreground">
+											Notes
+										</span>
+										<span class="text-muted-foreground">
+											Tasks
+										</span>
+									</div>
+									<!--vsk:t:ul-->
+									<ul class="mt-1">
+										<!--vsk:t:li-->
+										<li class="flex items-center justify-between border-b border-border/60 py-2 font-mono text-[10px]">
+											<!--vsk:t:span-->
+											<span class="text-foreground/85">
+												project-aurora
+											</span>
+											<!--vsk:t:span-->
+											<span class="text-muted-foreground">
+												note · 2.1 kB
+											</span>
+										</li>
+										<!--vsk:t:li-->
+										<li class="flex items-center justify-between border-b border-border/60 py-2 font-mono text-[10px]">
+											<!--vsk:t:span-->
+											<span class="text-foreground/85">
+												todo-backlog
+											</span>
+											<!--vsk:t:span-->
+											<span class="text-muted-foreground">
+												task · 1.3 kB
+											</span>
+										</li>
+										<!--vsk:t:li-->
+										<li class="flex items-center justify-between border-b border-border/60 py-2 font-mono text-[10px]">
+											<!--vsk:t:span-->
+											<span class="text-foreground/85">
+												meeting-notes
+											</span>
+											<!--vsk:t:span-->
+											<span class="text-muted-foreground">
+												note · 1.8 kB
+											</span>
+										</li>
+										<!--vsk:t:li-->
+										<li class="flex items-center justify-between border-b border-border/60 py-2 font-mono text-[10px]">
+											<!--vsk:t:span-->
+											<span class="text-foreground/85">
+												field-log
+											</span>
+											<!--vsk:t:span-->
+											<span class="text-muted-foreground">
+												note · 954 B
+											</span>
+										</li>
+									</ul>
+									<div class="mt-4 grid grid-cols-3 border-t border-border pt-2 font-mono text-[9px]">
+										<span class="text-center text-accent">
+											entries
+										</span>
+										<span class="text-center text-muted-foreground">
+											tags
+										</span>
+										<span class="text-center text-muted-foreground">
+											settings
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="mt-5 flex items-center justify-between border-t border-border pt-3 font-mono text-[10px] text-muted-foreground">
+								<span>
+									Entries.vsk → Entries.kt
+								</span>
+								<span class="text-accent">
+									compiled · 2.1 kB
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:Architecture-->
+			<!--vsk:t:section-->
+			<section id="architecture" class="border-b border-border">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<p class="eyebrow mb-5 flex items-center gap-2">
+						<span class="text-accent">
+							04
+						</span>
+						<span>
+							compiler architecture
+						</span>
+					</p>
+					<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[24ch]">
+						The compiler is the product.
+					</h2>
+					<p class="mt-5 max-w-[48ch] font-mono text-[13px] leading-relaxed text-muted-foreground text-pretty sm:text-sm">
+						Four stages, no hidden runtime. Select a stage to see what happens to your code inside it.
+					</p>
+					<!--vsk:t:div-->
+					<div class="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+						<!--vsk:t:ol-->
+						<ol class="border-t border-border">
+							<!--vsk:t:li-->
+							<li class="border-b border-border">
+								<!--vsk:t:button-->
+								<button type="button" class="flex w-full items-center gap-4 px-3 py-4 text-left transition-colors hover:bg-surface/60">
+									<!--vsk:t:span-->
+									<span class="font-mono text-[11px] text-muted-foreground">
+										01
+									</span>
+									<!--vsk:t:span-->
+									<span class="font-display text-sm font-medium tracking-tight">
+										Source Prepass
+									</span>
+									<!--vsk:t:span-->
+									<span class="ml-auto h-px flex-1 bg-border">
+									</span>
+								</button>
+							</li>
+							<!--vsk:t:li-->
+							<li class="border-b border-border">
+								<!--vsk:t:button-->
+								<button type="button" class="flex w-full items-center gap-4 px-3 py-4 text-left transition-colors hover:bg-surface/60">
+									<!--vsk:t:span-->
+									<span class="font-mono text-[11px] text-muted-foreground">
+										02
+									</span>
+									<!--vsk:t:span-->
+									<span class="font-display text-sm font-medium tracking-tight">
+										Parser
+									</span>
+									<!--vsk:t:span-->
+									<span class="ml-auto h-px flex-1 bg-border">
+									</span>
+								</button>
+							</li>
+							<!--vsk:t:li-->
+							<li class="border-b border-border">
+								<!--vsk:t:button-->
+								<button type="button" class="flex w-full items-center gap-4 px-3 py-4 text-left transition-colors bg-surface">
+									<!--vsk:t:span-->
+									<span class="font-mono text-[11px] text-accent">
+										03
+									</span>
+									<!--vsk:t:span-->
+									<span class="font-display text-sm font-medium tracking-tight">
+										IR Generation
+									</span>
+									<!--vsk:t:span-->
+									<span class="ml-auto h-px flex-1 bg-accent">
+									</span>
+								</button>
+							</li>
+							<!--vsk:t:li-->
+							<li class="border-b border-border">
+								<!--vsk:t:button-->
+								<button type="button" class="flex w-full items-center gap-4 px-3 py-4 text-left transition-colors hover:bg-surface/60">
+									<!--vsk:t:span-->
+									<span class="font-mono text-[11px] text-muted-foreground">
+										04
+									</span>
+									<!--vsk:t:span-->
+									<span class="font-display text-sm font-medium tracking-tight">
+										Platform Codegen
+									</span>
+									<!--vsk:t:span-->
+									<span class="ml-auto h-px flex-1 bg-border">
+									</span>
+								</button>
+							</li>
+						</ol>
+						<!--vsk:t:div-->
+						<div class="panel-strong flex h-full flex-col justify-between min-h-[220px]">
+							<div class="border-b border-border px-4 py-2">
+								<span class="eyebrow">
+									stage detail
+								</span>
+							</div>
+							<!--vsk:t:div-->
+							<div class="px-4 py-6 sm:px-6 sm:py-8">
+								<!--vsk:t:h3-->
+								<h3 class="font-display text-xl font-semibold tracking-tight sm:text-2xl">
+									IR Generation
+								</h3>
+								<!--vsk:t:p-->
+								<p class="mt-3 max-w-[44ch] font-mono text-[12.5px] leading-relaxed text-muted-foreground">
+									The AST becomes a flat intermediate representation — statement-mode control flow is dispatched, blocks are validated, &lt;style&gt; text is extracted to the component.
+								</p>
+							</div>
+							<!--vsk:t:div-->
+							<div class="border-t border-border px-4 py-3 font-mono text-[11px] text-muted-foreground">
+								<!--vsk:t:div-->
+								<div class="flex flex-wrap items-center gap-1.5">
+									<!--vsk:t:span-->
+									<span class="flex items-center gap-1.5">
+										<!--vsk:t:span-->
+										<span class="">
+											preprocess
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-border-strong">
+											→
+										</span>
+									</span>
+									<!--vsk:t:span-->
+									<span class="flex items-center gap-1.5">
+										<!--vsk:t:span-->
+										<span class="">
+											parse
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-border-strong">
+											→
+										</span>
+									</span>
+									<!--vsk:t:span-->
+									<span class="flex items-center gap-1.5">
+										<!--vsk:t:span-->
+										<span class="text-accent">
+											ir
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-border-strong">
+											→
+										</span>
+									</span>
+									<!--vsk:t:span-->
+									<span class="flex items-center gap-1.5">
+										<!--vsk:t:span-->
+										<span class="">
+											codegen
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:Targets-->
+			<section id="targets" class="border-b border-border bg-paper text-paper-foreground">
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<p class="eyebrow mb-5 flex items-center gap-2 text-paper-muted">
+						<span class="text-accent">
+							05
+						</span>
+						<span>
+							web + native
+						</span>
+					</p>
+					<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[26ch] text-paper-foreground">
+						One development experience. Different targets.
+					</h2>
+					<p class="mt-5 max-w-[50ch] font-mono text-[13px] leading-relaxed text-paper-muted text-pretty sm:text-sm">
+						Not &quot;write once, run anywhere&quot;. Vesk preserves the semantics of your source application and emits output that is appropriate for each platform it targets.
+					</p>
+					<div class="mt-10 border border-paper-foreground/25 bg-paper">
+						<div class="border-b border-paper-foreground/20 px-3 py-1.5">
+							<span class="eyebrow text-paper-muted">
+								target graph
+							</span>
+						</div>
+						<div class="px-4 py-8 sm:px-8 sm:py-12">
+							<div class="mx-auto max-w-md font-mono text-[12px] text-paper-foreground">
+								<div class="mx-auto w-fit border border-paper-foreground px-5 py-2 font-medium">
+									vesk
+								</div>
+								<div class="mx-auto h-6 w-px bg-paper-foreground/40">
+								</div>
+								<div class="mx-auto grid w-full grid-cols-2">
+									<div class="border-t border-r border-paper-foreground/40 h-6">
+									</div>
+									<div class="border-t border-paper-foreground/40 h-6">
+									</div>
+								</div>
+								<div class="grid grid-cols-2 gap-4 sm:gap-8">
+									<div class="text-center">
+										<div class="border border-paper-foreground/40 px-3 py-2.5 font-medium">
+											web
+										</div>
+										<div class="mx-auto h-5 w-px bg-paper-foreground/30">
+										</div>
+										<div class="border border-paper-foreground/20 px-3 py-2.5">
+											web platform
+										</div>
+										<p class="mt-2 text-[11px] text-paper-muted">
+											DOM · CSS · ESM
+										</p>
+									</div>
+									<div class="text-center">
+										<div class="border border-paper-foreground/40 px-3 py-2.5 font-medium">
+											native
+										</div>
+										<div class="mx-auto h-5 w-px bg-paper-foreground/30">
+										</div>
+										<div class="border border-paper-foreground/20 px-3 py-2.5">
+											kotlin
+										</div>
+										<p class="mt-2 text-[11px] text-paper-muted">
+											Compose · Material 3
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:Features-->
+			<!--vsk:t:section-->
+			<section id="features" class="border-b border-border">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<p class="eyebrow mb-5 flex items-center gap-2">
+						<span class="text-accent">
+							06
+						</span>
+						<span>
+							features
+						</span>
+					</p>
+					<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[24ch]">
+						What ships in the box.
+					</h2>
+					<!--vsk:t:div-->
+					<div class="mt-10 grid border-t border-l border-border sm:grid-cols-2 lg:grid-cols-3">
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Cpu-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu text-accent" aria-hidden="true">
+								<path d="M12 20v2"/>
+								<path d="M12 2v2"/>
+								<path d="M17 20v2"/>
+								<path d="M17 2v2"/>
+								<path d="M2 12h2"/>
+								<path d="M2 17h2"/>
+								<path d="M2 7h2"/>
+								<path d="M20 12h2"/>
+								<path d="M20 17h2"/>
+								<path d="M20 7h2"/>
+								<path d="M7 20v2"/>
+								<path d="M7 2v2"/>
+								<rect x="4" y="4" width="16" height="16" rx="2"/>
+								<rect x="8" y="8" width="8" height="8" rx="1"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Compiler-first architecture
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Build-time guarantees over runtime cost.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:FileCode2-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-2 text-accent" aria-hidden="true">
+								<path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/>
+								<path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+								<path d="m5 12-3 3 3 3"/>
+								<path d="m9 18 3-3-3-3"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								.vsk components
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Markup, styling and logic in one unit.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Boxes-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-boxes text-accent" aria-hidden="true">
+								<path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/>
+								<path d="m7 16.5-4.74-2.85"/>
+								<path d="m7 16.5 5-3"/>
+								<path d="M7 16.5v5.17"/>
+								<path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/>
+								<path d="m17 16.5-5-3"/>
+								<path d="m17 16.5 4.74-2.85"/>
+								<path d="M17 16.5v5.17"/>
+								<path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/>
+								<path d="M12 8 7.26 5.15"/>
+								<path d="m12 8 4.74-2.85"/>
+								<path d="M12 13.5V8"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								TypeScript
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Typed logic and typed component contracts.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Paintbrush-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paintbrush text-accent" aria-hidden="true">
+								<path d="m14.622 17.897-10.68-2.913"/>
+								<path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/>
+								<path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Tailwind CSS
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								The same utility model on web and native.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Smartphone-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone text-accent" aria-hidden="true">
+								<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+								<path d="M12 18h.01"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Vesk Native
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Compile toward native Kotlin targets.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Sparkles-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles text-accent" aria-hidden="true">
+								<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+								<path d="M20 3v4"/>
+								<path d="M22 5h-4"/>
+								<path d="M4 17v2"/>
+								<path d="M5 18H3"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Animation primitives
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Motion-style transitions, compiled.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:RefreshCw-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw text-accent" aria-hidden="true">
+								<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+								<path d="M21 3v5h-5"/>
+								<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+								<path d="M8 16H3v5"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Hot Module Replacement
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Sub-second feedback while you build.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Package-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package text-accent" aria-hidden="true">
+								<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/>
+								<path d="M12 22V12"/>
+								<polyline points="3.29 7 12 12 20.71 7"/>
+								<path d="m7.5 4.27 9 5.15"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								npm compatibility
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Use the ecosystem you already depend on.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:ShieldCheck-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check text-accent" aria-hidden="true">
+								<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+								<path d="m9 12 2 2 4-4"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Compile-time validation
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Unsupported semantics fail the build.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Gauge-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge text-accent" aria-hidden="true">
+								<path d="m12 14 4-4"/>
+								<path d="M3.34 19a10 10 0 1 1 17.32 0"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Production builds
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Optimized output per platform target.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Terminal-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal text-accent" aria-hidden="true">
+								<path d="M12 19h8"/>
+								<path d="m4 17 6-6-6-6"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Developer tooling
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								CLI, diagnostics and build inspection.
+							</p>
+						</article>
+						<!--vsk:t:article-->
+						<article class="h-full border-r border-b border-border p-5">
+							<!--vsk:c:Wrench-->
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench text-accent" aria-hidden="true">
+								<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+							</svg>
+							<h3 class="mt-4 font-display text-sm font-semibold tracking-tight">
+								Native APIs
+							</h3>
+							<p class="mt-1.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+								Platform capabilities without escape hatches.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:DevExperience-->
+			<!--vsk:t:section-->
+			<section id="dx" class="border-b border-border">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<!--vsk:t:div-->
+					<div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+						<div>
+							<p class="eyebrow mb-5 flex items-center gap-2">
+								<span class="text-accent">
+									07
+								</span>
+								<span>
+									developer experience
+								</span>
+							</p>
+							<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[20ch]">
+								The loop is the point.
+							</h2>
+							<p class="mt-5 max-w-[42ch] font-mono text-[13px] leading-relaxed text-muted-foreground text-pretty sm:text-sm">
+								One command to start. Compiler diagnostics in the terminal, hot module replacement in the browser, and the same project compiling toward native without a second toolchain.
+							</p>
+							<div class="mt-7 grid gap-px border border-border bg-border font-mono text-[11px] sm:grid-cols-3">
+								<div class="bg-background px-3 py-3">
+									<div class="text-muted-foreground">
+										start
+									</div>
+									<div class="mt-1 font-display text-base font-semibold tracking-tight">
+										1 command
+									</div>
+								</div>
+								<div class="bg-background px-3 py-3">
+									<div class="text-muted-foreground">
+										dev server
+									</div>
+									<div class="mt-1 font-display text-base font-semibold tracking-tight">
+										:3000
+									</div>
+								</div>
+								<div class="bg-background px-3 py-3">
+									<div class="text-muted-foreground">
+										targets
+									</div>
+									<div class="mt-1 font-display text-base font-semibold tracking-tight">
+										web + kotlin
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--vsk:t:div-->
+						<div class="panel-strong">
+							<div class="flex items-center gap-1.5 border-b border-border px-3 py-2">
+								<span class="size-2 bg-border-strong">
+								</span>
+								<span class="size-2 bg-border-strong">
+								</span>
+								<span class="size-2 bg-accent">
+								</span>
+								<span class="ml-2 font-mono text-[10px] text-muted-foreground">
+									vesk — zsh
+								</span>
+							</div>
+							<!--vsk:t:div-->
+							<div class="min-h-[248px] px-4 py-4 font-mono text-[11.5px] leading-[1.9] sm:text-[12.5px]">
+								<span class="caret inline-block h-3 w-1.5 bg-foreground/70 align-middle">
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:Docs-->
+			<!--vsk:t:section-->
+			<section id="docs" class="border-b border-border bg-paper text-paper-foreground">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<!--vsk:t:div-->
+					<div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+						<!--vsk:t:div-->
+						<div>
+							<p class="eyebrow mb-5 flex items-center gap-2 text-paper-muted">
+								<span class="text-accent">
+									08
+								</span>
+								<span>
+									documentation
+								</span>
+							</p>
+							<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[22ch] text-paper-foreground">
+								Documentation is part of the product.
+							</h2>
+							<p class="mt-5 max-w-[44ch] font-mono text-[13px] leading-relaxed text-paper-muted text-pretty sm:text-sm">
+								Concepts first, then reference. Every compiler behaviour, diagnostic and native capability is written down — not inferred from example projects.
+							</p>
+							<!--vsk:c:Link-->
+							<!--vsk:c:Link-->
+							<a href="/docs" class="mt-7 inline-flex items-center gap-1.5 border border-paper-foreground bg-paper-foreground px-5 py-3 font-display text-sm font-medium text-paper transition-opacity hover:opacity-90 no-underline">
+								Read the Documentation
+								<span aria-hidden>
+									→
+								</span>
+							</a>
+						</div>
+						<!--vsk:t:div-->
+						<div class="border border-paper-foreground/25">
+							<div class="border-b border-paper-foreground/20 px-3 py-1.5">
+								<span class="eyebrow text-paper-muted">
+									docs / contents
+								</span>
+							</div>
+							<!--vsk:t:ul-->
+							<ul class="font-mono text-[12.5px] m-0 p-0 list-none">
+								<!--vsk:t:li-->
+								<li class="border-b border-paper-foreground/12 last:border-b-0">
+									<!--vsk:c:Link-->
+									<!--vsk:c:Link-->
+									<a href="/docs/getting-started" class="flex items-center justify-between px-3 py-2.5 text-paper-foreground/80 transition-colors hover:bg-paper-foreground/5 hover:text-paper-foreground no-underline">
+										<!--vsk:t:span-->
+										<span>
+											Getting Started
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-[10px] text-paper-muted">
+											01
+										</span>
+									</a>
+								</li>
+								<!--vsk:t:li-->
+								<li class="border-b border-paper-foreground/12 last:border-b-0">
+									<!--vsk:c:Link-->
+									<!--vsk:c:Link-->
+									<a href="/docs/components" class="flex items-center justify-between px-3 py-2.5 text-paper-foreground/80 transition-colors hover:bg-paper-foreground/5 hover:text-paper-foreground no-underline">
+										<!--vsk:t:span-->
+										<span>
+											Component Declarations
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-[10px] text-paper-muted">
+											02
+										</span>
+									</a>
+								</li>
+								<!--vsk:t:li-->
+								<li class="border-b border-paper-foreground/12 last:border-b-0">
+									<!--vsk:c:Link-->
+									<!--vsk:c:Link-->
+									<a href="/docs/track-declarations" class="flex items-center justify-between px-3 py-2.5 text-paper-foreground/80 transition-colors hover:bg-paper-foreground/5 hover:text-paper-foreground no-underline">
+										<!--vsk:t:span-->
+										<span>
+											Track Declarations
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-[10px] text-paper-muted">
+											03
+										</span>
+									</a>
+								</li>
+								<!--vsk:t:li-->
+								<li class="border-b border-paper-foreground/12 last:border-b-0">
+									<!--vsk:c:Link-->
+									<!--vsk:c:Link-->
+									<a href="/docs/reactivity" class="flex items-center justify-between px-3 py-2.5 text-paper-foreground/80 transition-colors hover:bg-paper-foreground/5 hover:text-paper-foreground no-underline">
+										<!--vsk:t:span-->
+										<span>
+											Reactivity
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-[10px] text-paper-muted">
+											04
+										</span>
+									</a>
+								</li>
+								<!--vsk:t:li-->
+								<li class="border-b border-paper-foreground/12 last:border-b-0">
+									<!--vsk:c:Link-->
+									<!--vsk:c:Link-->
+									<a href="/docs/expression-mode" class="flex items-center justify-between px-3 py-2.5 text-paper-foreground/80 transition-colors hover:bg-paper-foreground/5 hover:text-paper-foreground no-underline">
+										<!--vsk:t:span-->
+										<span>
+											Expression Mode
+										</span>
+										<!--vsk:t:span-->
+										<span class="text-[10px] text-paper-muted">
+											05
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--vsk:t:div-->
+					<div class="mt-14 border-t border-paper-foreground/20 pt-8">
+						<p class="eyebrow mb-5 text-paper-muted">
+							ecosystem · built on what you know
+						</p>
+						<!--vsk:t:div-->
+						<div class="grid gap-px bg-paper-foreground/15 sm:grid-cols-3 lg:grid-cols-6">
+							<!--vsk:t:div-->
+							<div class="bg-paper px-3 py-4">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-paper-foreground">
+									TypeScript
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-paper-muted">
+									typed logic
+								</div>
+							</div>
+							<!--vsk:t:div-->
+							<div class="bg-paper px-3 py-4">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-paper-foreground">
+									Tailwind
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-paper-muted">
+									styling model
+								</div>
+							</div>
+							<!--vsk:t:div-->
+							<div class="bg-paper px-3 py-4">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-paper-foreground">
+									npm
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-paper-muted">
+									packages
+								</div>
+							</div>
+							<!--vsk:t:div-->
+							<div class="bg-paper px-3 py-4">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-paper-foreground">
+									Material 3
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-paper-muted">
+									native design
+								</div>
+							</div>
+							<!--vsk:t:div-->
+							<div class="bg-paper px-3 py-4">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-paper-foreground">
+									Kotlin
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-paper-muted">
+									native target
+								</div>
+							</div>
+							<!--vsk:t:div-->
+							<div class="bg-paper px-3 py-4">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-paper-foreground">
+									Motion
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-paper-muted">
+									animation model
+								</div>
+							</div>
+						</div>
+						<p class="mt-5 max-w-[62ch] font-mono text-[12px] leading-relaxed text-paper-muted">
+							Vesk is designed to work with technologies developers already understand rather than forcing an entirely foreign ecosystem.
+						</p>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:Showcase-->
+			<!--vsk:t:section-->
+			<section id="showcase" class="border-b border-border">
+				<!--vsk:t:div-->
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<p class="eyebrow mb-5 flex items-center gap-2">
+						<span class="text-accent">
+							09
+						</span>
+						<span>
+							showcase
+						</span>
+					</p>
+					<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[24ch]">
+						Built with Vesk.
+					</h2>
+					<!--vsk:t:div-->
+					<div class="mt-10 grid gap-3 lg:grid-cols-3 lg:gap-4">
+						<!--vsk:t:article-->
+						<article class="panel-strong group flex h-full flex-col justify-between p-5 transition-colors hover:border-border-strong">
+							<!--vsk:t:div-->
+							<div>
+								<!--vsk:t:div-->
+								<div class="flex items-center justify-between font-mono text-[10px] text-muted-foreground">
+									<!--vsk:t:span-->
+									<span class="uppercase tracking-[0.18em]">
+										Web
+									</span>
+									<!--vsk:t:span-->
+									<span>
+										01
+									</span>
+								</div>
+								<!--vsk:t:h3-->
+								<h3 class="mt-6 font-display text-xl font-semibold tracking-tight">
+									Aurora Console
+								</h3>
+								<!--vsk:t:p-->
+								<p class="mt-2 max-w-[34ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+									Operations dashboard for a deployment platform, compiled to the web target.
+								</p>
+							</div>
+							<!--vsk:t:div-->
+							<div class="mt-8 border-t border-border pt-3 font-mono text-[11px]">
+								<!--vsk:t:div-->
+								<div class="flex items-center justify-between text-muted-foreground">
+									<!--vsk:t:span-->
+									<span>
+										TypeScript · Tailwind
+									</span>
+									<!--vsk:t:span-->
+									<span class="text-accent">
+										48 kB shipped
+									</span>
+								</div>
+								<!--vsk:t:a-->
+								<a class="mt-3 inline-flex items-center gap-1.5 text-foreground underline decoration-border underline-offset-4 transition-colors group-hover:decoration-accent no-underline" href="/showcase/aurora">
+									View project
+									<span aria-hidden>
+										→
+									</span>
+								</a>
+							</div>
+						</article>
+						<!--vsk:t:article-->
+						<article class="panel-strong group flex h-full flex-col justify-between p-5 transition-colors hover:border-border-strong">
+							<!--vsk:t:div-->
+							<div>
+								<!--vsk:t:div-->
+								<div class="flex items-center justify-between font-mono text-[10px] text-muted-foreground">
+									<!--vsk:t:span-->
+									<span class="uppercase tracking-[0.18em]">
+										Android
+									</span>
+									<!--vsk:t:span-->
+									<span>
+										02
+									</span>
+								</div>
+								<!--vsk:t:h3-->
+								<h3 class="mt-6 font-display text-xl font-semibold tracking-tight">
+									Fieldbook
+								</h3>
+								<!--vsk:t:p-->
+								<p class="mt-2 max-w-[34ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+									Offline-first field notes app compiled toward native Kotlin with Material 3.
+								</p>
+							</div>
+							<!--vsk:t:div-->
+							<div class="mt-8 border-t border-border pt-3 font-mono text-[11px]">
+								<!--vsk:t:div-->
+								<div class="flex items-center justify-between text-muted-foreground">
+									<!--vsk:t:span-->
+									<span>
+										Vesk Native · Kotlin
+									</span>
+									<!--vsk:t:span-->
+									<span class="text-accent">
+										cold start 240 ms
+									</span>
+								</div>
+								<!--vsk:t:a-->
+								<a class="mt-3 inline-flex items-center gap-1.5 text-foreground underline decoration-border underline-offset-4 transition-colors group-hover:decoration-accent no-underline" href="/showcase/fieldbook">
+									View project
+									<span aria-hidden>
+										→
+									</span>
+								</a>
+							</div>
+						</article>
+						<!--vsk:t:article-->
+						<article class="panel-strong group flex h-full flex-col justify-between p-5 transition-colors hover:border-border-strong">
+							<!--vsk:t:div-->
+							<div>
+								<!--vsk:t:div-->
+								<div class="flex items-center justify-between font-mono text-[10px] text-muted-foreground">
+									<!--vsk:t:span-->
+									<span class="uppercase tracking-[0.18em]">
+										Web + Native
+									</span>
+									<!--vsk:t:span-->
+									<span>
+										03
+									</span>
+								</div>
+								<!--vsk:t:h3-->
+								<h3 class="mt-6 font-display text-xl font-semibold tracking-tight">
+									Signal Docs
+								</h3>
+								<!--vsk:t:p-->
+								<p class="mt-2 max-w-[34ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
+									Documentation site sharing the same component library as its native companion.
+								</p>
+							</div>
+							<!--vsk:t:div-->
+							<div class="mt-8 border-t border-border pt-3 font-mono text-[11px]">
+								<!--vsk:t:div-->
+								<div class="flex items-center justify-between text-muted-foreground">
+									<!--vsk:t:span-->
+									<span>
+										One codebase
+									</span>
+									<!--vsk:t:span-->
+									<span class="text-accent">
+										2 targets, 1 model
+									</span>
+								</div>
+								<!--vsk:t:a-->
+								<a class="mt-3 inline-flex items-center gap-1.5 text-foreground underline decoration-border underline-offset-4 transition-colors group-hover:decoration-accent no-underline" href="/showcase/signal-docs">
+									View project
+									<span aria-hidden>
+										→
+									</span>
+								</a>
+							</div>
+						</article>
+					</div>
+					<a href="#get-started" class="btn-outline mt-8 w-full px-6 py-3 text-sm sm:w-auto sm:min-w-[16rem] inline-grid place-items-center no-underline">
+						Build something with Vesk
+					</a>
+					<!--vsk:t:div-->
+					<div class="mt-16 border-t border-border pt-8">
+						<p class="eyebrow mb-5">
+							community
+						</p>
+						<!--vsk:t:div-->
+						<div class="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+							<!--vsk:t:a-->
+							<a class="group bg-background px-4 py-5 no-underline block" href="/community/github">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-foreground">
+									GitHub
+									<span class="text-muted-foreground transition-colors group-hover:text-accent">
+										→
+									</span>
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-muted-foreground">
+									source, issues, RFCs
+								</div>
+							</a>
+							<!--vsk:t:a-->
+							<a class="group bg-background px-4 py-5 no-underline block" href="/community/discord">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-foreground">
+									Discord
+									<span class="text-muted-foreground transition-colors group-hover:text-accent">
+										→
+									</span>
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-muted-foreground">
+									build in the open
+								</div>
+							</a>
+							<!--vsk:t:a-->
+							<a class="group bg-background px-4 py-5 no-underline block" href="/examples">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-foreground">
+									Examples
+									<span class="text-muted-foreground transition-colors group-hover:text-accent">
+										→
+									</span>
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-muted-foreground">
+									starter projects
+								</div>
+							</a>
+							<!--vsk:t:a-->
+							<a class="group bg-background px-4 py-5 no-underline block" href="/community/contributors">
+								<!--vsk:t:div-->
+								<div class="font-display text-sm font-semibold tracking-tight text-foreground">
+									Contributors
+									<span class="text-muted-foreground transition-colors group-hover:text-accent">
+										→
+									</span>
+								</div>
+								<!--vsk:t:div-->
+								<div class="mt-1 font-mono text-[11px] text-muted-foreground">
+									compiler &amp; tooling
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:Roadmap-->
+			<section id="roadmap" class="border-b border-border bg-surface/40">
+				<div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+					<p class="eyebrow mb-5 flex items-center gap-2">
+						<span class="text-accent">
+							10
+						</span>
+						<span>
+							roadmap
+						</span>
+					</p>
+					<h2 class="font-display font-semibold tracking-tight text-balance text-2xl leading-[1.05] sm:text-4xl max-w-[24ch]">
+						Ambitious, and honest about it.
+					</h2>
+					<div class="mt-10 grid gap-px bg-border lg:grid-cols-3">
+						<div class="h-full bg-background p-5 sm:p-6">
+							<div class="flex items-baseline justify-between">
+								<h3 class="font-display text-lg font-semibold tracking-tight">
+									Now
+								</h3>
+								<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+									in progress
+								</span>
+							</div>
+							<div class="mt-4 h-px bg-accent">
+							</div>
+							<ul class="mt-4 font-mono text-[12px] list-none m-0 p-0">
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-accent">
+										●
+									</span>
+									<span class="text-foreground/85">
+										Core compiler
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-accent">
+										●
+									</span>
+									<span class="text-foreground/85">
+										Vesk Native
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-accent">
+										●
+									</span>
+									<span class="text-foreground/85">
+										Developer tooling
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 py-2.5">
+									<span class="text-accent">
+										●
+									</span>
+									<span class="text-foreground/85">
+										Documentation
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="h-full bg-background p-5 sm:p-6">
+							<div class="flex items-baseline justify-between">
+								<h3 class="font-display text-lg font-semibold tracking-tight">
+									Next
+								</h3>
+								<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+									planned
+								</span>
+							</div>
+							<div class="mt-4 h-px bg-border">
+							</div>
+							<ul class="mt-4 font-mono text-[12px] list-none m-0 p-0">
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										Improved HMR
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										More native APIs
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										Package ecosystem
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										Build diagnostics
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="h-full bg-background p-5 sm:p-6">
+							<div class="flex items-baseline justify-between">
+								<h3 class="font-display text-lg font-semibold tracking-tight">
+									Future
+								</h3>
+								<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+									exploring
+								</span>
+							</div>
+							<div class="mt-4 h-px bg-border">
+							</div>
+							<ul class="mt-4 font-mono text-[12px] list-none m-0 p-0">
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										Additional platforms
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										Advanced compiler optimizations
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 border-b border-border/60 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										Larger ecosystem
+									</span>
+								</li>
+								<li class="flex items-start gap-2.5 py-2.5">
+									<span class="text-muted-foreground">
+										○
+									</span>
+									<span class="text-foreground/85">
+										Production-scale tooling
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--vsk:c:FinalCta-->
+			<section class="border-b border-border">
+				<div class="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+					<h2 class="max-w-[22ch] font-display text-[32px] font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl">
+						The next generation of application development starts with the
+						<span class="font-hand text-[0.95em] font-medium italic">
+							compiler.
+						</span>
+					</h2>
+					<p class="mt-6 max-w-[44ch] font-mono text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
+						Build for the web. Build for native. Let Vesk handle the translation.
+					</p>
+					<div class="mt-9 flex flex-col gap-2.5 sm:flex-row">
+						<a href="#get-started" class="btn-solid px-6 py-3 text-sm sm:min-w-[10rem] no-underline">
+							Get Started
+						</a>
+						<a href="#docs" class="btn-outline px-6 py-3 text-sm sm:min-w-[10rem] no-underline">
+							Read the Docs
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+	<!--vsk-slot-end:s1-->
+	<!--vsk:c:Footer-->
+	<!--vsk:t:footer-->
+	<footer class="bg-background">
+		<!--vsk:t:div-->
+		<div class="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
+			<!--vsk:t:div-->
+			<div class="grid gap-10 lg:grid-cols-[1.2fr_2fr]">
+				<div>
+					<div class="flex items-center gap-2">
+						<span class="grid size-6 place-items-center bg-foreground font-display text-[11px] font-bold text-background">
+							V
+						</span>
+						<span class="font-display text-sm font-semibold tracking-tight">
+							vesk
+						</span>
+					</div>
+					<p class="mt-4 max-w-[34ch] font-mono text-[11.5px] leading-relaxed text-muted-foreground">
+						A unified, compiler-driven way to build modern applications. Vesk is an open, experimental developer platform under active development.
+					</p>
+				</div>
+				<!--vsk:t:div-->
+				<div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+					<!--vsk:t:div-->
+					<div>
+						<!--vsk:t:p-->
+						<p class="eyebrow mb-3">
+							Product
+						</p>
+						<!--vsk:t:ul-->
+						<ul class="font-mono text-[12px] list-none m-0 p-0">
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/vesk" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Vesk
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/native" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Vesk Native
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/compiler" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Compiler
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/features" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Features
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/showcase" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Showcase
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!--vsk:t:div-->
+					<div>
+						<!--vsk:t:p-->
+						<p class="eyebrow mb-3">
+							Developers
+						</p>
+						<!--vsk:t:ul-->
+						<ul class="font-mono text-[12px] list-none m-0 p-0">
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/docs" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Documentation
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/docs/getting-started" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Getting Started
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/examples" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Examples
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/api-docs" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									API
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/community/github" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									GitHub
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!--vsk:t:div-->
+					<div>
+						<!--vsk:t:p-->
+						<p class="eyebrow mb-3">
+							Community
+						</p>
+						<!--vsk:t:ul-->
+						<ul class="font-mono text-[12px] list-none m-0 p-0">
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/community/github" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline" target="_blank" rel="noopener">
+									GitHub
+									<!--vsk:t:span-->
+									<span class="text-[10px]">
+										↗
+									</span>
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/community/discord" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline" target="_blank" rel="noopener">
+									Discord
+									<!--vsk:t:span-->
+									<span class="text-[10px]">
+										↗
+									</span>
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/community/discussions" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline" target="_blank" rel="noopener">
+									Discussions
+									<!--vsk:t:span-->
+									<span class="text-[10px]">
+										↗
+									</span>
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/community/contributors" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline" target="_blank" rel="noopener">
+									Contributors
+									<!--vsk:t:span-->
+									<span class="text-[10px]">
+										↗
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!--vsk:t:div-->
+					<div>
+						<!--vsk:t:p-->
+						<p class="eyebrow mb-3">
+							Company
+						</p>
+						<!--vsk:t:ul-->
+						<ul class="font-mono text-[12px] list-none m-0 p-0">
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/about" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									About
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/blog" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Blog
+								</a>
+							</li>
+							<!--vsk:t:li-->
+							<li>
+								<!--vsk:c:Link-->
+								<!--vsk:c:Link-->
+								<a href="/contact" class="block py-1 text-muted-foreground transition-colors hover:text-foreground no-underline">
+									Contact
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--vsk:t:div-->
+			<div class="mt-12 flex flex-col gap-2 border-t border-border pt-5 font-mono text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+				<span>
+					© 2026 Vesk · a compiler-first application framework
+				</span>
+				<!--vsk:t:span-->
+				<span>
+					compiler
+					<!--vsk:c:VersionBadge-->
+					<!--vsk:t:span-->
+					<span>
+						v0.2.35
+					</span>
+				</span>
+				<p>
+					Joseph Christopher (emeraldlinks)
+				</p>
+			</div>
+		</div>
+	</footer>
+</div>
+</div>
+
+	<script src="/ssr-data.js?t=fc8b8f119ab148acca8bfda6"></script>
+	<script type="module" src="/_vesk/static/client.js"></script>
+</body>
+</html>
